@@ -1,0 +1,72 @@
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/playfair-display/800.css";
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+    background-color: #F7EFE1;
+    color: #241A15;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #F7EFE1;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* Keyboard focus state visibility for accessibility */
+  :focus-visible {
+    outline: 2px solid #D9A441;
+    outline-offset: 3px;
+    border-radius: 0.25rem;
+  }
+}
+
+/* Custom styled scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7EFE1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5C1A1A;
+  border-radius: 5px;
+  border: 2px solid #F7EFE1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D9A441;
+}
+
+/* Custom background pattern utilities */
+.bg-rose-pattern {
+  background-image: radial-gradient(#5C1A1A 0.75px, transparent 0.75px), radial-gradient(#5C1A1A 0.75px, #F7EFE1 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  opacity: 0.05;
+}
+
+.bg-gold-subtle {
+  background: linear-gradient(135deg, rgba(217, 164, 65, 0.08) 0%, rgba(92, 26, 26, 0.03) 100%);
+}
+
+.bg-maroon-gradient {
+  background: linear-gradient(145deg, #3D1111 0%, #5C1A1A 60%, #7A2424 100%);
+}
