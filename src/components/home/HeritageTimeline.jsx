@@ -2,9 +2,11 @@ import React from 'react';
 import SectionHeader from '../common/SectionHeader';
 import HeritageBadge from '../common/HeritageBadge';
 import RoseDivider from '../common/RoseDivider';
+import RoseMotif from '../common/RoseMotif';
 
 export default function HeritageTimeline() {
   const milestones = [
+
     {
       year: "1987",
       title: "Humble Beginnings in Hyderabad",
@@ -29,8 +31,13 @@ export default function HeritageTimeline() {
 
   return (
     <section className="py-20 bg-cream-100 relative overflow-hidden border-y border-maroon-800/10">
-      {/* Background Subtle Flourish */}
+      {/* Background Subtle Rose Motif Watermark */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.04] pointer-events-none text-maroon-800">
+        <RoseMotif size={480} strokeWidth={1} />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
         
         <div className="flex flex-col items-center mb-12">
           <HeritageBadge size="lg" className="mb-4" />

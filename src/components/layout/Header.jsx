@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { NAVIGATION_LINKS } from '../../data/navigation';
 import { COMPANY_DETAILS } from '../../data/company';
+import RoseMotif from '../common/RoseMotif';
+
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,9 +70,7 @@ export default function Header() {
           {/* Logo Branding */}
           <Link to="/" className="flex items-center gap-3 group focus:outline-none">
             <div className="w-10 h-10 rounded-full bg-maroon-800 border-2 border-gold-500 flex items-center justify-center text-cream-100 shadow-sm group-hover:scale-105 transition-transform">
-              <svg className="w-6 h-6 text-gold-400" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C9.2 2 7 4.2 7 7C7 9.5 8.7 11.6 11 12.2V17H9V19H15V17H13V12.2C15.3 11.6 17 9.5 17 7C17 4.2 14.8 2 12 2Z" />
-              </svg>
+              <RoseMotif size={22} className="text-gold-400" />
             </div>
             <div>
               <span className="font-serif text-2xl font-extrabold text-maroon-800 tracking-wider block leading-none">
@@ -81,6 +81,7 @@ export default function Header() {
               </span>
             </div>
           </Link>
+
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-1">

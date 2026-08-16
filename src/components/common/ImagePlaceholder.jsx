@@ -1,4 +1,5 @@
 import React from 'react';
+import RoseMotif from './RoseMotif';
 
 /**
  * ImagePlaceholder component enforcing exact fixed aspect ratios to prevent Layout Shift.
@@ -45,13 +46,11 @@ export default function ImagePlaceholder({
       className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-cream-200 via-cream-100 to-cream-300 border border-maroon-800/10 flex flex-col items-center justify-center p-6 text-center select-none shadow-inner ${aspectClass} ${className}`}
       aria-label={`${title} placeholder`}
     >
-      {/* Background SVG Watermark */}
-      <div className="absolute inset-0 opacity-[0.04] pointer-events-none flex items-center justify-center">
-        <svg width="200" height="200" viewBox="0 0 100 100" fill="none">
-          <circle cx="50" cy="50" r="45" stroke="#5C1A1A" strokeWidth="2" />
-          <path d="M50 20 C35 20 25 32 25 45 C25 60 50 80 50 80 C50 80 75 60 75 45 C75 32 65 20 50 20 Z" fill="#5C1A1A" />
-        </svg>
+      {/* Background SVG Watermark reusing RoseMotif */}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none flex items-center justify-center text-maroon-800">
+        <RoseMotif size={140} strokeWidth={1} />
       </div>
+
 
       {/* Decorative Gold Frame */}
       <div className="absolute inset-2 border border-gold-500/20 rounded-lg pointer-events-none"></div>

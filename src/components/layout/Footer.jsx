@@ -3,15 +3,14 @@ import { Link } from 'react-router-dom';
 import { COMPANY_DETAILS } from '../../data/company';
 import { NAVIGATION_LINKS, CATEGORIES_LIST } from '../../data/navigation';
 import HeritageBadge from '../common/HeritageBadge';
+import RoseMotif from '../common/RoseMotif';
 
 export default function Footer() {
   return (
     <footer className="bg-espresso-900 text-cream-200 pt-16 pb-12 border-t-4 border-gold-500 relative overflow-hidden">
-      {/* Background Watermark */}
-      <div className="absolute top-0 right-0 opacity-5 pointer-events-none translate-x-1/4 -translate-y-1/4">
-        <svg width="400" height="400" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M50 20 C35 20 25 32 25 45 C25 60 50 80 50 80 C50 80 75 60 75 45 C75 32 65 20 50 20 Z" fill="#D9A441" />
-        </svg>
+      {/* Background Watermark featuring single signature Rose Motif */}
+      <div className="absolute top-0 right-0 opacity-5 pointer-events-none translate-x-1/4 -translate-y-1/4 text-gold-400">
+        <RoseMotif size={360} strokeWidth={1} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -21,9 +20,7 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-5">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-maroon-800 border-2 border-gold-500 flex items-center justify-center text-cream-100 shadow-sm">
-                <svg className="w-6 h-6 text-gold-400" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C9.2 2 7 4.2 7 7C7 9.5 8.7 11.6 11 12.2V17H9V19H15V17H13V12.2C15.3 11.6 17 9.5 17 7C17 4.2 14.8 2 12 2Z" />
-                </svg>
+                <RoseMotif size={22} className="text-gold-400" />
               </div>
               <div>
                 <h3 className="font-serif text-2xl font-bold text-cream-100 tracking-wider">
@@ -34,6 +31,7 @@ export default function Footer() {
                 </p>
               </div>
             </div>
+
 
             <p className="text-sm text-espresso-200 leading-relaxed max-w-sm">
               Established in 1987 in Hyderabad, India. Manufacturers & global exporters of premium biscuits, cookies, rusks, wafer rolls, and snack foods across 20+ countries.

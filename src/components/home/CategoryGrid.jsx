@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SectionHeader from '../common/SectionHeader';
 import { CATEGORIES_LIST } from '../../data/navigation';
 import ImagePlaceholder from '../common/ImagePlaceholder';
+import RoseMotif from '../common/RoseMotif';
 
 export default function CategoryGrid() {
   return (
@@ -20,11 +21,10 @@ export default function CategoryGrid() {
           
           {/* Main Large Hero Category Card (Biscuits) - Spans 7 cols */}
           <div className="md:col-span-7 bg-maroon-800 text-cream-100 rounded-3xl p-8 shadow-warm flex flex-col justify-between relative overflow-hidden group">
-            <div className="absolute top-0 right-0 opacity-10 pointer-events-none translate-x-10 -translate-y-10">
-              <svg width="300" height="300" viewBox="0 0 100 100" fill="currentColor">
-                <circle cx="50" cy="50" r="45" stroke="#D9A441" strokeWidth="2" />
-              </svg>
+            <div className="absolute top-0 right-0 opacity-10 pointer-events-none translate-x-10 -translate-y-10 text-gold-400">
+              <RoseMotif size={280} strokeWidth={1} />
             </div>
+
 
             <div className="relative z-10 space-y-4">
               <span className="inline-block px-3 py-1 rounded-full bg-gold-500 text-espresso-900 text-xs font-bold uppercase tracking-wider">
