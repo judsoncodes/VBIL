@@ -1,13 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <circle cx="50" cy="50" r="48" fill="#5C1A1A" stroke="#D9A441" stroke-width="4"/>
-  {/* Signature Rose Line-Art Motif */}
-  <g stroke="#D9A441" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
-    <path d="M50 18C38 18 28 28 28 40C28 56 50 72 50 72C50 72 72 56 72 40C72 28 62 18 50 18Z" />
-    <path d="M50 26C43 26 36 32 36 40C36 50 50 62 50 62C50 62 64 50 64 40C64 32 57 26 50 26Z" />
-    <path d="M50 33C46 33 42 36 42 41C42 47 50 54 50 54C50 54 58 47 58 41C58 36 54 33 50 33Z" />
-    <circle cx="50" cy="41" r="3" fill="#D9A441" />
-    <path d="M50 72V84" />
-    <path d="M50 76C40 73 30 78 28 83C36 85 45 83 50 76Z" />
-    <path d="M50 80C60 77 70 82 72 87C64 89 55 87 50 80Z" />
-  </g>
+  <!-- Outer Gold Rim Circle -->
+  <circle cx="50" cy="50" r="48" fill="#F7EFE1" stroke="#D9A441" stroke-width="4"/>
+  
+  <!-- ROSE Oval Badge -->
+  <ellipse cx="50" cy="42" r="40" ry="22" fill="#5C1A1A" />
+  <ellipse cx="50" cy="42" r="38" ry="20" stroke="#D9A441" stroke-width="1.5" fill="none" />
+  
+  <!-- ROSE Text -->
+  <text x="50" y="49" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="900" font-style="italic" fill="#FFFDF9" text-anchor="middle" letter-spacing="1">ROSE</text>
+  <path d="M 22 52 C 30 56, 60 56, 76 49 C 64 54, 34 54, 22 52 Z" fill="#FFFDF9" />
+  <text x="84" y="30" font-family="sans-serif" font-size="6" font-weight="bold" fill="#FFFDF9">®</text>
+
+  <!-- PURE JOY Banner -->
+  <rect x="15" y="70" width="70" height="14" rx="2" fill="#5C1A1A" stroke="#D9A441" stroke-width="1" />
+  <text x="50" y="80.5" font-family="sans-serif" font-size="8" font-weight="900" fill="#FFFDF9" text-anchor="middle" letter-spacing="1.5">PURE JOY</text>
 </svg>

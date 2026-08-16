@@ -4,6 +4,7 @@ import { COMPANY_DETAILS } from '../../data/company';
 import { NAVIGATION_LINKS, CATEGORIES_LIST } from '../../data/navigation';
 import HeritageBadge from '../common/HeritageBadge';
 import RoseMotif from '../common/RoseMotif';
+import RoseLogo from '../common/RoseLogo';
 
 export default function Footer() {
   return (
@@ -18,19 +19,10 @@ export default function Footer() {
           
           {/* Col 1 & 2: Brand Story & Heritage */}
           <div className="lg:col-span-2 space-y-5">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-maroon-800 border-2 border-gold-500 flex items-center justify-center text-cream-100 shadow-sm">
-                <RoseMotif size={22} className="text-gold-400" />
-              </div>
-              <div>
-                <h3 className="font-serif text-2xl font-bold text-cream-100 tracking-wider">
-                  ROSE BISCUITS
-                </h3>
-                <p className="text-[10px] text-gold-400 uppercase tracking-widest font-bold">
-                  Veeramani Biscuit Industries Pvt. Ltd.
-                </p>
-              </div>
-            </div>
+            <Link to="/" className="inline-block hover:scale-105 transition-transform">
+              <RoseLogo height={58} variant="full" light={true} />
+            </Link>
+
 
 
             <p className="text-sm text-espresso-200 leading-relaxed max-w-sm">

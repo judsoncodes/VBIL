@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { NAVIGATION_LINKS } from '../../data/navigation';
 import { COMPANY_DETAILS } from '../../data/company';
-import RoseMotif from '../common/RoseMotif';
-
+import RoseLogo from '../common/RoseLogo';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -61,25 +60,15 @@ export default function Header() {
       <nav 
         className={`w-full transition-all duration-300 border-b ${
           isScrolled 
-            ? 'bg-cream-100/95 backdrop-blur-md shadow-warm border-maroon-800/10 py-3' 
-            : 'bg-cream-100 border-maroon-800/10 py-4'
+            ? 'bg-cream-100/95 backdrop-blur-md shadow-warm border-maroon-800/10 py-2.5' 
+            : 'bg-cream-100 border-maroon-800/10 py-3.5'
         }`}
         aria-label="Main Navigation"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo Branding */}
-          <Link to="/" className="flex items-center gap-3 group focus:outline-none">
-            <div className="w-10 h-10 rounded-full bg-maroon-800 border-2 border-gold-500 flex items-center justify-center text-cream-100 shadow-sm group-hover:scale-105 transition-transform">
-              <RoseMotif size={22} className="text-gold-400" />
-            </div>
-            <div>
-              <span className="font-serif text-2xl font-extrabold text-maroon-800 tracking-wider block leading-none">
-                ROSE
-              </span>
-              <span className="text-[10px] font-bold text-espresso-600 uppercase tracking-widest block mt-0.5">
-                Veeramani Biscuit Industries
-              </span>
-            </div>
+          {/* Official ROSE Brand Logo */}
+          <Link to="/" className="flex items-center group focus:outline-none hover:scale-105 transition-transform">
+            <RoseLogo height={52} variant="full" />
           </Link>
 
 
