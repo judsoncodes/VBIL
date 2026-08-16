@@ -2,11 +2,11 @@ import React from 'react';
 
 /**
  * Official ROSE Brand Logo Component.
- * Vector implementation replicating the exact legacy emblem:
- * - Stylized "ROSE" oval badge with signature swoosh underline & ® mark
- * - "BISCUIT" text label
- * - "PURE JOY" ribbon banner with decorative tails
- * - "Tasty & Healthy" tagline
+ * Vector implementation strictly retaining the authentic vibrant brand red (#ED1C24) color:
+ * - Bright Red (#ED1C24) oval badge with italic "ROSE®" wordmark and signature white swoosh
+ * - Red "BISCUIT" label
+ * - Red "PURE JOY" ribbon banner with white lettering
+ * - Red "Tasty & Healthy" tagline
  */
 export default function RoseLogo({ 
   variant = "full", 
@@ -14,9 +14,9 @@ export default function RoseLogo({
   className = "",
   light = false 
 }) {
-  const primaryColor = light ? "#F7EFE1" : "#5C1A1A"; // Deep Maroon/Oxblood or Cream
-  const accentColor = light ? "#D9A441" : "#D9A441";  // Warm Biscuit-Gold
-  const textColor = light ? "#F7EFE1" : "#241A15";
+  // Authentic Red Brand Color from original logo asset
+  const redColor = "#ED1C24"; 
+  const lightBgText = light ? "#F7EFE1" : redColor;
 
   if (variant === "compact") {
     return (
@@ -28,10 +28,8 @@ export default function RoseLogo({
         className={`inline-block ${className}`}
         aria-label="ROSE Biscuits Logo"
       >
-        {/* Oval Badge */}
-        <ellipse cx="100" cy="30" rx="90" ry="26" fill={primaryColor} />
-        {/* Gold Outer Border Ring */}
-        <ellipse cx="100" cy="30" rx="88" ry="24" stroke={accentColor} strokeWidth="1.5" fill="none" />
+        {/* Oval Badge in Authentic Red */}
+        <ellipse cx="100" cy="30" rx="90" ry="26" fill={redColor} />
         
         {/* ROSE Text */}
         <text 
@@ -41,7 +39,7 @@ export default function RoseLogo({
           fontSize="32" 
           fontWeight="900" 
           fontStyle="italic"
-          fill="#FFFDF9" 
+          fill="#FFFFFF" 
           textAnchor="middle"
           letterSpacing="1"
         >
@@ -51,11 +49,11 @@ export default function RoseLogo({
         {/* Signature Underline Swoosh */}
         <path 
           d="M 38 42 C 55 48, 120 48, 155 40 C 130 46, 65 46, 38 42 Z" 
-          fill="#FFFDF9" 
+          fill="#FFFFFF" 
         />
         
         {/* Registered Mark */}
-        <text x="178" y="18" fontFamily="sans-serif" fontSize="8" fontWeight="bold" fill="#FFFDF9">®</text>
+        <text x="178" y="18" fontFamily="sans-serif" fontSize="8" fontWeight="bold" fill="#FFFFFF">®</text>
       </svg>
     );
   }
@@ -69,11 +67,10 @@ export default function RoseLogo({
       className={`inline-block ${className}`}
       aria-label="Veeramani ROSE Biscuits Pure Joy Logo"
     >
-      {/* 1. Top Oval Badge */}
-      <ellipse cx="120" cy="30" rx="85" ry="24" fill={primaryColor} />
-      <ellipse cx="120" cy="30" rx="83" ry="22" stroke={accentColor} strokeWidth="1.5" fill="none" />
+      {/* 1. Top Oval Badge in Authentic Brand Red (#ED1C24) */}
+      <ellipse cx="120" cy="30" rx="85" ry="24" fill={redColor} />
       
-      {/* ROSE Wordmark */}
+      {/* ROSE Wordmark in Crisp White */}
       <text 
         x="120" 
         y="37" 
@@ -81,7 +78,7 @@ export default function RoseLogo({
         fontSize="30" 
         fontWeight="900" 
         fontStyle="italic"
-        fill="#FFFDF9" 
+        fill="#FFFFFF" 
         textAnchor="middle"
         letterSpacing="1.5"
       >
@@ -91,20 +88,20 @@ export default function RoseLogo({
       {/* Signature Underline Swoosh */}
       <path 
         d="M 60 40 C 78 46, 138 46, 172 38 C 148 44, 88 44, 60 40 Z" 
-        fill="#FFFDF9" 
+        fill="#FFFFFF" 
       />
 
       {/* Registered Mark */}
-      <text x="194" y="18" fontFamily="sans-serif" fontSize="7" fontWeight="bold" fill="#FFFDF9">®</text>
+      <text x="194" y="18" fontFamily="sans-serif" fontSize="7" fontWeight="bold" fill="#FFFFFF">®</text>
 
-      {/* 2. Sub-label: BISCUIT */}
+      {/* 2. Sub-label: BISCUIT (Authentic Red) */}
       <text 
         x="120" 
         y="62" 
         fontFamily="'Plus Jakarta Sans', system-ui, sans-serif" 
         fontSize="9" 
         fontWeight="800" 
-        fill={primaryColor} 
+        fill={light ? "#F7EFE1" : redColor} 
         textAnchor="middle"
         letterSpacing="3"
       >
@@ -113,16 +110,15 @@ export default function RoseLogo({
 
       {/* 3. Pure Joy Ribbon Banner */}
       {/* Ribbon Left Tail */}
-      <path d="M 25 72 L 45 66 L 45 78 Z" fill={primaryColor} />
-      <path d="M 15 72 L 30 68 L 30 76 Z" fill={primaryColor} opacity="0.8" />
+      <path d="M 25 72 L 45 66 L 45 78 Z" fill={redColor} />
+      <path d="M 15 72 L 30 68 L 30 76 Z" fill={redColor} opacity="0.8" />
       
       {/* Ribbon Right Tail */}
-      <path d="M 215 72 L 195 66 L 195 78 Z" fill={primaryColor} />
-      <path d="M 225 72 L 210 68 L 210 76 Z" fill={primaryColor} opacity="0.8" />
+      <path d="M 215 72 L 195 66 L 195 78 Z" fill={redColor} />
+      <path d="M 225 72 L 210 68 L 210 76 Z" fill={redColor} opacity="0.8" />
 
-      {/* Main Ribbon Body */}
-      <rect x="42" y="66" width="156" height="14" rx="2" fill={primaryColor} />
-      <rect x="44" y="67" width="152" height="12" rx="1" stroke={accentColor} strokeWidth="0.75" fill="none" />
+      {/* Main Ribbon Body in Authentic Red */}
+      <rect x="42" y="66" width="156" height="14" rx="2" fill={redColor} />
 
       <text 
         x="120" 
@@ -130,7 +126,7 @@ export default function RoseLogo({
         fontFamily="'Plus Jakarta Sans', system-ui, sans-serif" 
         fontSize="9" 
         fontWeight="900" 
-        fill="#FFFDF9" 
+        fill="#FFFFFF" 
         textAnchor="middle"
         letterSpacing="2.5"
       >
@@ -145,7 +141,7 @@ export default function RoseLogo({
         fontSize="11" 
         fontWeight="700" 
         fontStyle="italic"
-        fill={primaryColor} 
+        fill={light ? "#F7EFE1" : redColor} 
         textAnchor="middle"
         letterSpacing="0.5"
       >
