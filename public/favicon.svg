@@ -1,10 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <!-- Outer Double Red Ring -->
-  <circle cx="50" cy="50" r="48" fill="#FFFDF9" stroke="#ED1C24" stroke-width="3"/>
-  <circle cx="50" cy="50" r="43" fill="none" stroke="#ED1C24" stroke-width="1.5"/>
-  
-  <!-- Inner Filled Red Disc -->
-  <circle cx="50" cy="50" r="39" fill="#ED1C24" />
+  <!-- Solid Red Disc Emblem - NO White Border -->
+  <circle cx="50" cy="50" r="48" fill="#ED1C24" />
+  <circle cx="50" cy="50" r="47" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-opacity="0.3" />
   
   <!-- Calligraphic White VBi / VBIL Monogram -->
   <!-- Stylized 'V' -->
