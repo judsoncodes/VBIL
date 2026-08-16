@@ -5,7 +5,8 @@ import ImagePlaceholder from '../common/ImagePlaceholder';
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-8 pb-20 md:pt-16 md:pb-28 overflow-hidden bg-cream-100">
+    <section className="relative pt-8 pb-20 md:pt-16 md:pb-28 overflow-hidden bg-hero-vignette">
+
       {/* Background Decorative Rose Pattern */}
       <div className="absolute inset-0 bg-rose-pattern pointer-events-none"></div>
 

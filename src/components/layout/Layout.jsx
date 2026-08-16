@@ -24,7 +24,7 @@ export default function Layout({
   const canonicalUrl = `https://veeramanibiscuits.com${location.pathname}`;
 
   return (
-    <div className="min-h-screen flex flex-col bg-cream-100 text-espresso-800 antialiased selection:bg-gold-500 selection:text-maroon-900">
+    <div className="min-h-screen flex flex-col bg-cream-100 text-espresso-800 antialiased selection:bg-gold-500 selection:text-maroon-900 tactile-paper-grain">
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
