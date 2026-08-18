@@ -15,19 +15,19 @@ export default function ProductsHub() {
 
   return (
     <Layout
-      title="All Products | ROSE Biscuits, Cookies, Wafers, Papad & Snacks"
-      description="Explore the complete product catalog of Veeramani Biscuit Industries Pvt. Ltd. (ROSE) - Biscuits, Osmania cookies, rusks, cream wafers, papad, and snacks."
+      title="Complete ROSE Products Catalog | Biscuits, Cookies, Wafers, Papad & Snacks"
+      description="Explore the complete master product catalog of Veeramani Biscuit Industries Pvt. Ltd. (ROSE) - Marie Delite, Osmania cookies, rusks, cream wafers, papad, and snacks."
     >
       <section className="py-16 bg-maroon-800 text-cream-100 text-center">
         <div className="max-w-4xl mx-auto px-4">
           <span className="inline-block px-3 py-1 rounded-full bg-gold-500 text-espresso-900 text-xs font-bold uppercase tracking-wider mb-3">
-            ROSE Master Catalog
+            Oven-Fresh FMCG Catalog
           </span>
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-cream-100">
             Our Products Hub
           </h1>
           <p className="mt-3 text-cream-200 font-sans text-sm md:text-base max-w-xl mx-auto">
-            Discover over 50+ SKUs baked with love, premium ingredients, and 35+ years of South Indian bakery heritage.
+            Explore 50+ product SKUs baked with pure ingredients, authentic recipes, and 35+ years of South Indian oven craftsmanship.
           </p>
         </div>
       </section>
@@ -68,12 +68,37 @@ export default function ProductsHub() {
             ))}
           </div>
 
-          {/* Product Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          {/* Product Cards Grid OR Helpful Empty State */}
+          {filteredProducts.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {filteredProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16 px-4 bg-cream-50 rounded-3xl border border-maroon-800/10 max-w-xl mx-auto space-y-4">
+              <h3 className="font-serif font-bold text-2xl text-espresso-800">
+                No SKUs Listed Under This Filter
+              </h3>
+              <p className="text-xs text-espresso-600 font-sans leading-relaxed">
+                We couldn't find products matching this specific category view. Explore our full range of 50+ flagship biscuits, cookies, and wafers or contact our sales team for custom manufacturing enquiries.
+              </p>
+              <div className="pt-2 flex justify-center gap-3">
+                <button
+                  onClick={() => setSelectedCategory('all')}
+                  className="px-5 py-2.5 rounded-xl bg-maroon-800 text-gold-400 font-bold text-xs hover:bg-maroon-900 transition-colors"
+                >
+                  View All 50+ Products
+                </button>
+                <Link
+                  to="/contact"
+                  className="px-5 py-2.5 rounded-xl bg-gold-500 text-espresso-900 font-bold text-xs hover:bg-gold-400 transition-colors"
+                >
+                  Contact Sales Team
+                </Link>
+              </div>
+            </div>
+          )}
 
         </div>
       </section>

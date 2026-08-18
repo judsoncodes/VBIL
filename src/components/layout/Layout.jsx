@@ -8,8 +8,8 @@ import Footer from './Footer';
  * Layout Component wrapping all page routes.
  * Dynamically handles Helmet meta tags, canonical links, OpenGraph imagery, and scroll restoration.
  */
-export default function Layout({ 
-  children, 
+export default function Layout({
+  children,
   title = "ROSE Biscuits | Veeramani Biscuit Industries Pvt. Ltd.",
   description = "Veeramani Biscuit Industries Pvt. Ltd. (brand: ROSE) - Premier South Indian manufacturer & exporter of premium biscuits, cookies, rusks, wafers, papad, and snacks since 1987.",
   ogImage = "/og-image.jpg"

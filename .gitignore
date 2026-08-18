@@ -2,6 +2,10 @@
 node_modules
 .pnpm-store
 
+# Environment variables
+.env
+.env*.local
+
 # Production build output
 dist
 dist-ssr

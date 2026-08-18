@@ -1,25 +1,39 @@
 export const NAVIGATION_LINKS = [
   { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
-  { name: "Quality Control", path: "/quality" },
+  { 
+    name: "About & Leadership", 
+    path: "/about",
+    dropdown: [
+      { name: "About VBIL", path: "/about", description: "35+ Years of bakery heritage & excellence" },
+      { name: "Chairman Profile", path: "/chairman", description: "Founder & Chairman Sri D.S. Jabamany" },
+      { name: "Executive Leadership", path: "/leadership", description: "MD P.J.E. Rajiah & Management Team" },
+      { name: "Infrastructure & Factory", path: "/infrastructure", description: "Turkayamjal automated manufacturing plant" },
+      { name: "Quality Control", path: "/quality", description: "Hygienic baking & quality standards" }
+    ]
+  },
   { 
     name: "Products", 
     path: "/products",
     dropdown: [
       { name: "All Products", path: "/products", description: "Explore complete ROSE product catalog" },
-      { name: "Biscuits", path: "/products/biscuits", description: "Marie, Saltino, Bourbon, Glucose & Cream Touch" },
+      { name: "Biscuits", path: "/products/biscuits", description: "Marie, Saltino, Bourbon & Cream Touch" },
       { name: "Cookies", path: "/products/cookies", description: "Butter, Osmania, Kaju & Birthday Cake Cookies" },
       { name: "Rusk", path: "/products/rusk", description: "Crunchy Fruit Rusk & Plain Tea Rusk" },
       { name: "Wafers & Rolls", path: "/products/wafers", description: "Crispy Wafer Sheets, Rolls & Chocobullets" },
       { name: "Papad & Snacks", path: "/products/papad", description: "Hyderabadi Biryani Papad, Potato Curls & Tubes" },
-      { name: "Corn & Popcorn", path: "/products/corn-popcorn", description: "Crunchy Seasoned Corn & Butter Popcorn" },
-      { name: "Upcoming Duet Series", path: "/products/new", description: "Teaser: Mango, Kulfi, Vanilla & Berry Duets", badge: "NEW" },
+      { name: "Upcoming Duet Series", path: "/products/new", description: "Teaser: Mango, Kulfi, Vanilla & Berry Duets", badge: "NEW" }
     ]
   },
-  { name: "Chairman", path: "/chairman" },
-  { name: "Leadership", path: "/leadership" },
-  { name: "Infrastructure", path: "/infrastructure" },
-  { name: "Contact Us", path: "/contact" },
+  { 
+    name: "Distributors & Trade", 
+    path: "/distributors",
+    dropdown: [
+      { name: "Nearest Stockist Finder", path: "/distributors", description: "Locate authorized distributors across South India" },
+      { name: "Apply for Distributorship", path: "/distributors#b2b-form", description: "Become an authorized ROSE stockist" },
+      { name: "Place a Bulk Order", path: "/order-request", description: "Wholesale bulk quote & carton ordering portal", badge: "B2B" }
+    ]
+  },
+  { name: "Contact Us", path: "/contact" }
 ];
 
 export const CATEGORIES_LIST = [

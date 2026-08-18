@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap');
+
 @import "@fontsource/playfair-display/400.css";
 @import "@fontsource/playfair-display/600.css";
 @import "@fontsource/playfair-display/700.css";
 @import "@fontsource/playfair-display/800.css";
+@import "@fontsource/playfair-display/900.css";
+@import "@fontsource/playfair-display/900-italic.css";
 @import "@fontsource/plus-jakarta-sans/400.css";
 @import "@fontsource/plus-jakarta-sans/500.css";
 @import "@fontsource/plus-jakarta-sans/600.css";
 @import "@fontsource/plus-jakarta-sans/700.css";
+@import "@fontsource/plus-jakarta-sans/800.css";
+@import "@fontsource/plus-jakarta-sans/800-italic.css";
+
 
 @tailwind base;
 @tailwind components;
@@ -30,7 +37,7 @@
 
   /* Keyboard focus state visibility for accessibility */
   :focus-visible {
-    outline: 2px solid #D9A441;
+    outline: 2px solid #F50108;
     outline-offset: 3px;
     border-radius: 0.25rem;
   }
@@ -46,7 +53,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #5C1A1A;
+  background: #F50108;
   border-radius: 5px;
   border: 2px solid #F7EFE1;
 }
@@ -71,23 +78,67 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperGrain)'/%3E%3C/svg%3E");
 }
 
-/* Soft radial vignette for Hero section (darkening toward edges) */
+/* Soft radial vignette for Hero section (darkening toward edges with ROSE Brand Red) */
 .bg-hero-vignette {
-  background: radial-gradient(ellipse at 50% 35%, #FFFDF9 0%, #F7EFE1 60%, rgba(92, 26, 26, 0.09) 100%);
+  background: radial-gradient(ellipse at 50% 35%, #FFFDF9 0%, #F7EFE1 60%, rgba(245, 1, 8, 0.09) 100%);
 }
 
 .bg-rose-pattern {
-  background-image: radial-gradient(#5C1A1A 0.75px, transparent 0.75px), radial-gradient(#5C1A1A 0.75px, #F7EFE1 0.75px);
+  background-image: radial-gradient(#F50108 0.75px, transparent 0.75px), radial-gradient(#F50108 0.75px, #F7EFE1 0.75px);
   background-size: 30px 30px;
   background-position: 0 0, 15px 15px;
   opacity: 0.05;
 }
 
 .bg-gold-subtle {
-  background: linear-gradient(135deg, rgba(217, 164, 65, 0.08) 0%, rgba(92, 26, 26, 0.03) 100%);
+  background: linear-gradient(135deg, rgba(217, 164, 65, 0.08) 0%, rgba(245, 1, 8, 0.03) 100%);
 }
 
 .bg-maroon-gradient {
-  background: linear-gradient(145deg, #3D1111 0%, #5C1A1A 60%, #7A2424 100%);
+  background: linear-gradient(145deg, #7A0C11 0%, #9E1117 50%, #F50108 100%);
 }
 
+/* Shimmer Skeleton Placeholder for Image Loading */
+@keyframes shimmerWave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: #EFE4D0;
+}
+
+.skeleton-shimmer::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(247, 239, 225, 0) 0,
+    rgba(217, 164, 65, 0.25) 20%,
+    rgba(247, 239, 225, 0.6) 60%,
+    rgba(247, 239, 225, 0)
+  );
+  animation: shimmerWave 1.8s infinite ease-in-out;
+  content: '';
+}
+
+/* Authentic ROSE Brand Wordmark Typography Utility (Bookman Style Heavy Italic Serif) */
+.font-logo-brand {
+  font-family: 'Bookman Old Style', 'URW Bookman', 'ITC Bookman', 'Bookman', 'Playfair Display', Georgia, serif;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  transform: skewX(-6deg);
+  display: inline-block;
+}

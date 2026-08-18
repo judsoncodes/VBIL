@@ -58,9 +58,9 @@ export default function CategoryGrid() {
           </div>
 
           {/* Secondary Hero Category Card (Cookies) - Spans 5 cols */}
-          <div className="md:col-span-5 bg-gold-500 text-espresso-900 rounded-3xl p-8 shadow-warm flex flex-col justify-between relative overflow-hidden group">
+          <div className="md:col-span-5 bg-cream-100 text-espresso-800 border border-cream-300 rounded-3xl p-8 shadow-sm hover:shadow-warm transition-all flex flex-col justify-between relative overflow-hidden group">
             <div className="relative z-10 space-y-4">
-              <span className="inline-block px-3 py-1 rounded-full bg-maroon-800 text-gold-400 text-xs font-bold uppercase tracking-wider">
+              <span className="inline-block px-3 py-1 rounded-full bg-maroon-800/10 text-maroon-800 border border-maroon-800/20 text-xs font-bold uppercase tracking-wider">
                 Artisanal Bakery • 10 SKUs
               </span>
 
@@ -68,18 +68,19 @@ export default function CategoryGrid() {
                 Hyderabadi Cookies
               </h3>
 
-              <p className="text-espresso-800 text-sm font-sans leading-relaxed">
-                Authentic sweet & salt Osmania, Butter Delite, Kaju, and Birthday Cake cookies baked fresh daily.
+              <p className="text-espresso-700 text-sm font-sans leading-relaxed">
+                Authentic sweet &amp; salty Osmania, Butter Delite, Kaju, and Birthday Cake cookies baked fresh daily.
               </p>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-gold-600/30 flex items-center justify-between relative z-10">
-              <span className="text-xs font-bold text-maroon-900">Heritage Recipe</span>
+            <div className="mt-8 pt-6 border-t border-espresso-200 flex items-center justify-between relative z-10">
+              <span className="text-xs font-bold text-maroon-900 tracking-wide">Heritage Recipe</span>
               <Link
                 to="/products/cookies"
-                className="px-4 py-2 rounded-xl bg-maroon-800 text-gold-400 font-bold text-xs hover:bg-maroon-900 transition-colors"
+                className="px-4 py-2 rounded-xl bg-maroon-800 text-cream-100 font-bold text-xs hover:bg-maroon-900 transition-colors shadow-sm inline-flex items-center gap-1.5"
               >
-                Explore Cookies →
+                <span>Explore Cookies</span>
+                <span>→</span>
               </Link>
             </div>
           </div>
@@ -87,29 +88,29 @@ export default function CategoryGrid() {
           {/* Bottom Row - 3 Asymmetric Column Cards */}
 
           {/* Card 3: Wafers */}
-          <div className="md:col-span-4 bg-cream-200 text-espresso-800 rounded-2xl p-6 border border-maroon-800/10 shadow-sm hover:shadow-warm transition-all flex flex-col justify-between">
+          <div className="md:col-span-4 bg-cream-100 text-espresso-800 rounded-2xl p-6 border border-cream-300 shadow-sm hover:shadow-warm transition-all flex flex-col justify-between">
             <div className="space-y-3">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-maroon-800 bg-maroon-100 px-2 py-0.5 rounded">
-                Wafers & Rolls
+              <span className="text-[10px] font-bold uppercase tracking-widest text-maroon-800 bg-maroon-800/10 border border-maroon-800/20 px-2.5 py-1 rounded-md inline-block">
+                Wafers &amp; Rolls
               </span>
               <h4 className="font-serif text-xl font-bold text-espresso-800">
-                Chocobullets & Wafer Rolls
+                Chocobullets &amp; Wafer Rolls
               </h4>
               <p className="text-xs text-espresso-600 font-sans leading-relaxed">
                 Hyderabadi Chocobullets, wafer rolls, and multi-layer fruit cream wafer squares.
               </p>
             </div>
-            <Link to="/products/wafers" className="mt-6 text-xs font-bold text-maroon-800 hover:text-gold-600 inline-flex items-center gap-1">
+            <Link to="/products/wafers" className="mt-6 text-xs font-bold text-maroon-800 hover:text-maroon-900 inline-flex items-center gap-1">
               <span>Browse 9 SKUs</span>
               <span>→</span>
             </Link>
           </div>
 
           {/* Card 4: Papad & Snacks */}
-          <div className="md:col-span-4 bg-espresso-800 text-cream-100 rounded-2xl p-6 shadow-sm hover:shadow-warm transition-all flex flex-col justify-between">
+          <div className="md:col-span-4 bg-espresso-800 text-cream-100 rounded-2xl p-6 shadow-sm hover:shadow-warm transition-all flex flex-col justify-between border border-espresso-700">
             <div className="space-y-3">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-gold-400 bg-espresso-700 px-2 py-0.5 rounded">
-                Savory & Spicy
+              <span className="text-[10px] font-bold uppercase tracking-widest text-gold-400 bg-espresso-700/80 border border-gold-500/30 px-2.5 py-1 rounded-md inline-block">
+                Savory &amp; Spicy
               </span>
               <h4 className="font-serif text-xl font-bold text-cream-100">
                 Hyderabadi Biryani Papad
@@ -125,15 +126,15 @@ export default function CategoryGrid() {
           </div>
 
           {/* Card 5: Upcoming Duet Series */}
-          <div className="md:col-span-4 bg-rosePink-100 text-maroon-900 border-2 border-dashed border-rosePink-500 rounded-2xl p-6 shadow-sm hover:shadow-warm transition-all flex flex-col justify-between">
+          <div className="md:col-span-4 bg-cream-100 text-espresso-800 border-2 border-dashed border-maroon-800/20 rounded-2xl p-6 shadow-sm hover:shadow-warm transition-all flex flex-col justify-between">
             <div className="space-y-3">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-cream-100 bg-maroon-800 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-cream-100 bg-maroon-800 px-2.5 py-1 rounded-md inline-block">
                 New Teaser
               </span>
               <h4 className="font-serif text-xl font-bold text-maroon-900">
-                Duet Series (Mango, Kulfi & Vanilla)
+                Duet Series (Mango, Kulfi &amp; Vanilla)
               </h4>
-              <p className="text-xs text-espresso-700 font-sans leading-relaxed">
+              <p className="text-xs text-espresso-600 font-sans leading-relaxed">
                 Dual-cream taste creations launching soon nationwide. Pre-order info available.
               </p>
             </div>

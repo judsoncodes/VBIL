@@ -7,13 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Authentic ROSE Brand Logo Palette
         maroon: {
-          900: '#3D1111',
-          800: '#5C1A1A', // Primary heritage maroon / oxblood
-          700: '#7A2424',
-          600: '#993030',
-          100: '#F7EAEB',
-          50: '#FCF5F5',
+          950: '#6B0A0F',
+          900: '#9E1117', // Deep ROSE Brand Red
+          800: '#F50108', // Official Sampled ROSE Brand Logo Red (#F50108)
+          700: '#FF333B',
+          600: '#FF5960',
+          200: '#FCD2D4',
+          100: '#FDE8E9',
+          50: '#FEF2F3',
         },
         gold: {
           600: '#C49132',
@@ -46,12 +49,13 @@ export default {
         }
       },
       fontFamily: {
+        display: ['Fraunces', 'Newsreader', '"Playfair Display"', 'Georgia', 'serif'],
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
         'warm': '0 10px 30px -10px rgba(36, 26, 21, 0.08)',
-        'warm-hover': '0 20px 40px -15px rgba(92, 26, 26, 0.15)',
+        'warm-hover': '0 20px 40px -15px rgba(245, 1, 8, 0.2)',
         'gold-glow': '0 0 25px rgba(217, 164, 65, 0.3)',
       },
       aspectRatio: {

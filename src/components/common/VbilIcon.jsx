@@ -16,7 +16,7 @@ export default function VbilIcon({ size = 32, className = "" }) {
       aria-label="VBIL Corporate Monogram Icon"
     >
       {/* Solid Red Disc - No White Border */}
-      <circle cx="50" cy="50" r="48" fill="#ED1C24" />
+      <circle cx="50" cy="50" r="48" fill="#F50108" />
       <circle cx="50" cy="50" r="47" stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.3" fill="none" />
       
       {/* White Script VBi Monogram */}

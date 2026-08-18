@@ -28,7 +28,7 @@ export default function InfrastructureTeaser() {
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-2">
               <h3 className="font-serif text-2xl font-bold text-espresso-800">
-                100+ Tons Daily Baking Capacity
+                High-Capacity Daily Baking Output
               </h3>
               <p className="text-sm text-espresso-600 leading-relaxed font-sans">
                 Our plant integrates high-precision temperature control, automated dough mixing, rotary cutting, rotary moulding, and continuous band oven lines to deliver uniform baking quality across every single batch.

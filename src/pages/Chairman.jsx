@@ -32,11 +32,18 @@ export default function Chairman() {
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-cream-50 rounded-3xl p-8 border border-maroon-800/10 shadow-warm">
             <div className="md:col-span-5">
-              <ImagePlaceholder
-                aspectRatio="1:1"
-                title={chairman.name}
-                category="Founder & Chairman"
-              />
+              <div className="relative rounded-2xl overflow-hidden shadow-md border-2 border-cream-300 bg-cream-100 group">
+                <img 
+                  src={chairman.image || "/Chairmain.jpg"} 
+                  alt={chairman.name}
+                  className="w-full h-auto object-cover object-center max-h-[380px] group-hover:scale-105 transition-transform duration-500" 
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-espresso-900/80 via-espresso-900/40 to-transparent p-4 text-center">
+                  <span className="text-xs font-bold text-gold-400 block font-serif">
+                    {chairman.title}
+                  </span>
+                </div>
+              </div>
             </div>
 
             <div className="md:col-span-7 space-y-4">

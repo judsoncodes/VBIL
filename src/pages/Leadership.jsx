@@ -28,11 +28,18 @@ export default function Leadership() {
           {/* MD Spotlight Card */}
           <div className="bg-cream-50 rounded-3xl p-8 border border-maroon-800/10 shadow-warm grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-4">
-              <ImagePlaceholder
-                aspectRatio="1:1"
-                title={md.name}
-                category="Managing Director"
-              />
+              <div className="relative rounded-2xl overflow-hidden shadow-md border-2 border-cream-300 bg-cream-100 group">
+                <img 
+                  src={md.image || "/MD.jpg"} 
+                  alt={md.name}
+                  className="w-full h-auto object-cover object-center max-h-[340px] group-hover:scale-105 transition-transform duration-500" 
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-espresso-900/80 via-espresso-900/40 to-transparent p-3 text-center">
+                  <span className="text-xs font-bold text-gold-400 block font-serif">
+                    {md.title}
+                  </span>
+                </div>
+              </div>
             </div>
 
             <div className="md:col-span-8 space-y-4">
@@ -50,6 +57,42 @@ export default function Leadership() {
 
               <p className="text-xs md:text-sm text-espresso-700 leading-relaxed font-sans">
                 {md.bio}
+              </p>
+            </div>
+          </div>
+
+          {/* Chairman Spotlight Card */}
+          <div className="bg-cream-50 rounded-3xl p-8 border border-maroon-800/10 shadow-warm grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-4">
+              <div className="relative rounded-2xl overflow-hidden shadow-md border-2 border-cream-300 bg-cream-100 group">
+                <img 
+                  src={chairman.image || "/Chairmain.jpg"} 
+                  alt={chairman.name}
+                  className="w-full h-auto object-cover object-center max-h-[340px] group-hover:scale-105 transition-transform duration-500" 
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-espresso-900/80 via-espresso-900/40 to-transparent p-3 text-center">
+                  <span className="text-xs font-bold text-gold-400 block font-serif">
+                    {chairman.title}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="md:col-span-8 space-y-4">
+              <div className="border-b border-cream-300 pb-3">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-maroon-800 bg-maroon-800/10 px-2 py-0.5 rounded">
+                  Founder &amp; Chairman
+                </span>
+                <h2 className="font-serif font-bold text-3xl text-espresso-800 mt-1">
+                  {chairman.name}
+                </h2>
+                <span className="text-xs font-semibold text-espresso-600">
+                  Born {chairman.birthDate} • {chairman.birthPlace}
+                </span>
+              </div>
+
+              <p className="text-xs md:text-sm text-espresso-700 leading-relaxed font-sans">
+                {chairman.bio}
               </p>
             </div>
           </div>

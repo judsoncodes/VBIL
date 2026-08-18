@@ -1,31 +1,65 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 import { NAVIGATION_LINKS } from '../../data/navigation';
 import { COMPANY_DETAILS } from '../../data/company';
 import RoseLogo from '../common/RoseLogo';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  
   const location = useLocation();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      
+      // Past 100px triggers shrunk header styling
+      setIsScrolled(currentScrollY > 100);
+
+      // Smart Sticky reveal on scroll UP, hide on scroll DOWN (past 100px)
+      if (currentScrollY > 100) {
+        if (currentScrollY > lastScrollY + 5) {
+          // Scrolling down - hide header unless mobile menu is open
+          setIsVisible(false);
+        } else if (currentScrollY < lastScrollY - 5) {
+          // Scrolling up - reveal header
+          setIsVisible(true);
+        }
+      } else {
+        // At the top - always visible
+        setIsVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-    setProductsDropdownOpen(false);
+    setActiveDropdown(null);
   }, [location.pathname]);
 
+  // Keep header visible if mobile drawer is active
+  const activeVisibility = isVisible || mobileMenuOpen;
+
   return (
-    <header className="sticky top-0 z-50 w-full transition-all duration-300">
+    <motion.header 
+      className="sticky top-0 z-50 w-full"
+      initial={{ y: 0 }}
+      animate={{ y: (activeVisibility || shouldReduceMotion) ? 0 : "-100%" }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.28, ease: [0.22, 1, 0.36, 1] }}
+    >
       {/* Top Banner Strip */}
       <div className="bg-maroon-900 text-cream-200 text-xs py-1.5 px-4 font-sans border-b border-gold-500/20">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
@@ -49,66 +83,67 @@ export default function Header() {
               <span>{COMPANY_DETAILS.phone}</span>
             </a>
             <span className="text-cream-300/40">|</span>
-            <Link to="/contact" className="hover:text-gold-400 font-semibold text-gold-400 underline">
+            <Link to="/distributors" className="hover:text-gold-400 font-semibold text-gold-400 underline">
               Distributor Inquiry
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
+      {/* Main Navigation Bar - Scroll-Aware Padding & Shadow */}
       <nav 
         className={`w-full transition-all duration-300 border-b ${
           isScrolled 
-            ? 'bg-cream-100/95 backdrop-blur-md shadow-warm border-maroon-800/10 py-2.5' 
-            : 'bg-cream-100 border-maroon-800/10 py-3.5'
+            ? 'bg-cream-100/95 backdrop-blur-md shadow-warm border-maroon-800/15 py-2' 
+            : 'bg-cream-100 border-transparent py-3.5'
         }`}
         aria-label="Main Navigation"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Official ROSE Brand Logo */}
+          
+          {/* Official ROSE Brand Logo - Shrinks smoothly on scroll */}
           <Link to="/" className="flex items-center group focus:outline-none hover:scale-105 transition-transform">
-            <RoseLogo height={52} variant="full" />
+            <RoseLogo height={isScrolled ? 42 : 52} variant="full" />
           </Link>
 
-
           {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1.5">
             {NAVIGATION_LINKS.map((link) => {
-              const isActive = location.pathname === link.path || (link.dropdown && location.pathname.startsWith('/products'));
+              const isActive = location.pathname === link.path || (link.dropdown && link.dropdown.some(sub => location.pathname === sub.path));
+              const isOpen = activeDropdown === link.name;
 
               if (link.dropdown) {
                 return (
                   <div 
                     key={link.name} 
                     className="relative"
-                    onMouseEnter={() => setProductsDropdownOpen(true)}
-                    onMouseLeave={() => setProductsDropdownOpen(false)}
+                    onMouseEnter={() => setActiveDropdown(link.name)}
+                    onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <Link
                       to={link.path}
-                      className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1 ${
-                        isActive 
-                          ? 'text-maroon-800 bg-gold-500/15' 
-                          : 'text-espresso-800 hover:text-maroon-800 hover:bg-cream-200/50'
+                      className={`px-3 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-1 ${
+                        isActive || isOpen
+                          ? 'text-maroon-800 bg-gold-500/20 shadow-sm' 
+                          : 'text-espresso-800 hover:text-maroon-800 hover:bg-cream-200/60'
                       }`}
                     >
                       <span>{link.name}</span>
-                      <svg className={`w-4 h-4 transition-transform duration-200 ${productsDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180 text-maroon-800' : 'text-espresso-500'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                       </svg>
                     </Link>
 
-                    {/* Products Dropdown Menu */}
-                    {productsDropdownOpen && (
-                      <div className="absolute top-full left-0 w-80 bg-cream-50 rounded-xl shadow-warm-hover border border-maroon-800/10 p-2 py-3 mt-1 grid gap-1 animate-fadeIn z-50">
+                    {/* Grouped Dropdown Menu */}
+                    {isOpen && (
+                      <div className="absolute top-full left-0 w-80 bg-cream-50 rounded-2xl shadow-warm-hover border border-maroon-800/10 p-2.5 mt-1 grid gap-1 animate-fadeIn z-50">
                         {link.dropdown.map((subItem) => (
                           <Link
                             key={subItem.name}
                             to={subItem.path}
-                            className={`p-2.5 rounded-lg transition-colors flex flex-col ${
+                            className={`p-2.5 rounded-xl transition-colors flex flex-col ${
                               location.pathname === subItem.path
-                                ? 'bg-maroon-800 text-cream-100'
+                                ? 'bg-maroon-800 text-cream-100 shadow-sm'
                                 : 'hover:bg-cream-200/70 text-espresso-800'
                             }`}
                           >
@@ -135,10 +170,10 @@ export default function Header() {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                  className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                     isActive 
-                      ? 'text-maroon-800 bg-gold-500/15' 
-                      : 'text-espresso-800 hover:text-maroon-800 hover:bg-cream-200/50'
+                      ? 'text-maroon-800 bg-gold-500/20 shadow-sm' 
+                      : 'text-espresso-800 hover:text-maroon-800 hover:bg-cream-200/60'
                   }`}
                 >
                   {link.name}
@@ -207,6 +242,6 @@ export default function Header() {
           </div>
         )}
       </nav>
-    </header>
+    </motion.header>
   );
 }

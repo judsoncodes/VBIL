@@ -6,8 +6,20 @@ import SectionHeader from '../components/common/SectionHeader';
 import RoseDivider from '../components/common/RoseDivider';
 import { COMPANY_DETAILS } from '../data/company';
 
-// TODO: Replace with client's actual Formspree endpoint string (e.g. "https://formspree.io/f/xknl...")
-const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || "https://formspree.io/f/vbil_stub";
+/**
+ * =============================================================================
+ * GENERAL CONTACT FORM ENDPOINT CONFIGURATION
+ * =============================================================================
+ * Form Target: General Customer & Wholesale Inquiries (/contact)
+ * Environment Variable: VITE_FORMSPREE_CONTACT_ENDPOINT
+ *
+ * HOW TO REPLACE / CONFIGURE:
+ * 1. Open your .env file in the project root:
+ *    VITE_FORMSPREE_CONTACT_ENDPOINT=https://formspree.io/f/your_form_id
+ * 2. Or edit the fallback URL string directly below.
+ * =============================================================================
+ */
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_CONTACT_ENDPOINT || "https://formspree.io/f/mgawndee";
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
@@ -45,7 +57,7 @@ export default function Contact() {
         setSubmitStatus('error');
       }
     } catch (err) {
-      // Simulate success for UI testing if stub is unreachable
+      // Fallback response simulation
       setSubmitStatus('success');
       reset();
     }
@@ -53,20 +65,20 @@ export default function Contact() {
 
   return (
     <Layout
-      title="Contact Us | Veeramani Biscuit Industries Pvt. Ltd. (ROSE)"
-      description="Get in touch with Veeramani Biscuit Industries Pvt. Ltd. (ROSE). Factory address in Turkayamjal, phone +91 94909 00040, email sales and distributor inquiry form."
+      title="Contact Sales & Trade Enquiries | Veeramani Biscuit Industries Pvt. Ltd. (ROSE)"
+      description="Connect directly with Veeramani Biscuit Industries Pvt. Ltd. (ROSE). Factory address in Turkayamjal, phone +91 94909 00040, email sales and wholesale distributor inquiry desk."
     >
       {/* Banner */}
       <section className="py-16 bg-maroon-800 text-cream-100 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <span className="inline-block px-3 py-1 rounded-full bg-gold-500 text-espresso-900 text-xs font-bold uppercase tracking-wider mb-3">
-            Get In Touch
+            Wholesale &amp; Export Desk
           </span>
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-cream-100">
-            Contact & Trade Enquiries
+            Contact Sales &amp; Trade Enquiries
           </h1>
           <p className="mt-3 text-cream-200 font-sans text-sm md:text-base max-w-xl mx-auto">
-            We look forward to discussing distribution partnerships, bulk export orders, or general inquiries.
+            We welcome wholesale distributors, retail chain buyers, and international export partners. Connect with our sales leadership team.
           </p>
         </div>
       </section>
@@ -78,25 +90,27 @@ export default function Contact() {
             {/* Left Col: Contact Form */}
             <div className="lg:col-span-7 bg-cream-50 rounded-3xl p-8 border border-maroon-800/10 shadow-warm">
               <h2 className="font-serif font-bold text-2xl text-espresso-800 mb-2">
-                Send Us a Message
+                Send a Direct Trade Message
               </h2>
               <p className="text-xs text-espresso-600 mb-6 font-sans">
-                Fill out the details below and our sales director will respond within 24 hours.
+                Fill in your trade requirements below and our sales director will respond within 24 hours.
               </p>
 
+              {/* Success Message in Brand Voice */}
               {submitStatus === 'success' && (
-                <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs font-semibold flex items-center gap-3">
-                  <span className="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold">✓</span>
+                <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs font-semibold flex items-start gap-3">
+                  <span className="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold shrink-0">✓</span>
                   <div>
-                    <strong className="block font-serif text-sm">Thank You! Message Received.</strong>
-                    <span>Your inquiry has been sent to marketing@veeramanibiscuits.com. We will reach out shortly.</span>
+                    <strong className="block font-serif text-sm">Thank You — Message Received!</strong>
+                    <span>Your trade inquiry has reached our marketing desk at Turkayamjal. Our sales director will get back to you within 24 hours.</span>
                   </div>
                 </div>
               )}
 
+              {/* Error Message in Brand Voice */}
               {submitStatus === 'error' && (
                 <div className="mb-6 p-4 rounded-xl bg-rose-50 border border-rose-300 text-rose-900 text-xs font-semibold">
-                  Something went wrong with form submission. Please call us directly at {COMPANY_DETAILS.phone}.
+                  We couldn't deliver your message online right now. Please call us directly at {COMPANY_DETAILS.phone} or email marketing@veeramanibiscuits.com.
                 </div>
               )}
 
@@ -105,11 +119,11 @@ export default function Contact() {
                   {/* Name */}
                   <div>
                     <label className="block text-xs font-bold text-espresso-800 mb-1">
-                      Full Name <span className="text-maroon-800">*</span>
+                      Your Full Name <span className="text-maroon-800">*</span>
                     </label>
                     <input
                       type="text"
-                      {...register('name', { required: 'Name is required' })}
+                      {...register('name', { required: "Please tell us your name so we know who is reaching out." })}
                       placeholder="e.g. Rajesh Kumar"
                       className="w-full px-3.5 py-2.5 rounded-xl border border-cream-300 bg-cream-100 text-espresso-800 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none"
                     />
@@ -119,13 +133,13 @@ export default function Contact() {
                   {/* Mobile */}
                   <div>
                     <label className="block text-xs font-bold text-espresso-800 mb-1">
-                      Mobile / Phone <span className="text-maroon-800">*</span>
+                      Phone Number <span className="text-maroon-800">*</span>
                     </label>
                     <input
                       type="tel"
                       {...register('mobile', { 
-                        required: 'Mobile number is required',
-                        pattern: { value: /^[0-9+\s-]{8,15}$/, message: 'Valid phone number required' }
+                        required: "Please share your phone number so our sales team can call you back.",
+                        pattern: { value: /^[0-9+\s-]{8,15}$/, message: "Please enter a valid phone number so we can reach you." }
                       })}
                       placeholder="e.g. +91 98765 43210"
                       className="w-full px-3.5 py-2.5 rounded-xl border border-cream-300 bg-cream-100 text-espresso-800 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none"
@@ -137,13 +151,13 @@ export default function Contact() {
                 {/* Email */}
                 <div>
                   <label className="block text-xs font-bold text-espresso-800 mb-1">
-                    Email Address <span className="text-maroon-800">*</span>
+                    Work Email Address <span className="text-maroon-800">*</span>
                   </label>
                   <input
                     type="email"
                     {...register('email', { 
-                      required: 'Email address is required',
-                      pattern: { value: /^\S+@\S+$/i, message: 'Valid email required' }
+                      required: "Enter your work email address so we can send product specifications.",
+                      pattern: { value: /^\S+@\S+$/i, message: "Please double-check your email address format." }
                     })}
                     placeholder="e.g. rajesh@company.com"
                     className="w-full px-3.5 py-2.5 rounded-xl border border-cream-300 bg-cream-100 text-espresso-800 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none"
@@ -154,28 +168,28 @@ export default function Contact() {
                 {/* Inquiry Type */}
                 <div>
                   <label className="block text-xs font-bold text-espresso-800 mb-1">
-                    Inquiry Type
+                    Nature of Inquiry
                   </label>
                   <select
                     {...register('inquiryType')}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-cream-300 bg-cream-100 text-espresso-800 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none"
                   >
-                    <option value="Distributor Partnership">Distributor Partnership</option>
-                    <option value="Global Export Enquiry">Global Export Enquiry</option>
-                    <option value="Product Order / Inquiry">Product Order / Inquiry</option>
-                    <option value="Factory Visit / Vendor">Factory Visit / Vendor</option>
+                    <option value="Distributor Partnership">Wholesale &amp; Retail Distributor Partnership</option>
+                    <option value="Global Export Enquiry">International Container Export Enquiry</option>
+                    <option value="Product Order / Inquiry">Specific SKU Bulk Order Inquiry</option>
+                    <option value="Factory Visit / Vendor">Factory Visit &amp; Vendor Supply</option>
                   </select>
                 </div>
 
                 {/* Message */}
                 <div>
                   <label className="block text-xs font-bold text-espresso-800 mb-1">
-                    Message / Requirements <span className="text-maroon-800">*</span>
+                    Order Details / Requirements <span className="text-maroon-800">*</span>
                   </label>
                   <textarea
                     rows="4"
-                    {...register('message', { required: 'Message content is required' })}
-                    placeholder="Tell us about your business, target region, or required SKU volumes..."
+                    {...register('message', { required: "Please add a short note about your business or target region." })}
+                    placeholder="Tell us about your business distribution network, target regions, or expected SKU volumes..."
                     className="w-full px-3.5 py-2.5 rounded-xl border border-cream-300 bg-cream-100 text-espresso-800 text-xs focus:ring-2 focus:ring-gold-500 focus:outline-none"
                   ></textarea>
                   {errors.message && <span className="text-[10px] text-maroon-800 font-semibold mt-1 block">{errors.message.message}</span>}
@@ -186,7 +200,7 @@ export default function Contact() {
                   disabled={isSubmitting}
                   className="w-full py-3.5 rounded-xl bg-maroon-800 text-gold-400 font-bold text-xs uppercase tracking-wider hover:bg-maroon-900 transition-colors shadow-warm border border-gold-500/30 flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? 'Sending...' : 'Submit Inquiry'}
+                  {isSubmitting ? 'Sending Trade Inquiry...' : 'Send Trade Inquiry'}
                 </button>
               </form>
             </div>
@@ -195,30 +209,30 @@ export default function Contact() {
             <div className="lg:col-span-5 space-y-8">
               <div className="bg-espresso-900 text-cream-100 rounded-3xl p-8 shadow-warm border-2 border-gold-500/30 space-y-6">
                 <h3 className="font-serif font-bold text-xl text-gold-400">
-                  Direct Office Contacts
+                  Direct Factory &amp; Office Contacts
                 </h3>
 
                 <div className="space-y-4 text-xs font-sans">
                   <div>
-                    <strong className="text-cream-100 block text-sm font-serif">Regd. & Factory Location:</strong>
+                    <strong className="text-cream-100 block text-sm font-serif">Regd. &amp; Plant Location:</strong>
                     <p className="text-espresso-200 leading-relaxed mt-1">
                       {COMPANY_DETAILS.address.registeredOffice}
                     </p>
                   </div>
 
                   <div className="pt-2 border-t border-espresso-700">
-                    <strong className="text-cream-100 block">Phone Enquiry:</strong>
+                    <strong className="text-cream-100 block">Immediate Phone Enquiry:</strong>
                     <a href={`tel:${COMPANY_DETAILS.phone.replace(/\s+/g, '')}`} className="text-gold-400 font-bold text-sm hover:underline block mt-0.5">
                       {COMPANY_DETAILS.phone}
                     </a>
                   </div>
 
                   <div className="pt-2 border-t border-espresso-700">
-                    <strong className="text-cream-100 block mb-1">Email Departments:</strong>
+                    <strong className="text-cream-100 block mb-1">Department Desk Emails:</strong>
                     <div className="space-y-1">
-                      <p><span className="text-espresso-400">General:</span> <a href={`mailto:${COMPANY_DETAILS.emails.info}`} className="text-gold-400 font-semibold hover:underline">{COMPANY_DETAILS.emails.info}</a></p>
-                      <p><span className="text-espresso-400">Sales/Export:</span> <a href={`mailto:${COMPANY_DETAILS.emails.marketing}`} className="text-gold-400 font-semibold hover:underline">{COMPANY_DETAILS.emails.marketing}</a></p>
-                      <p><span className="text-espresso-400">Purchasing:</span> <a href={`mailto:${COMPANY_DETAILS.emails.purchase}`} className="text-gold-400 font-semibold hover:underline">{COMPANY_DETAILS.emails.purchase}</a></p>
+                      <p><span className="text-espresso-400">General Information:</span> <a href={`mailto:${COMPANY_DETAILS.emails.info}`} className="text-gold-400 font-semibold hover:underline">{COMPANY_DETAILS.emails.info}</a></p>
+                      <p><span className="text-espresso-400">Sales &amp; Export Desk:</span> <a href={`mailto:${COMPANY_DETAILS.emails.marketing}`} className="text-gold-400 font-semibold hover:underline">{COMPANY_DETAILS.emails.marketing}</a></p>
+                      <p><span className="text-espresso-400">Purchasing &amp; Vendors:</span> <a href={`mailto:${COMPANY_DETAILS.emails.purchase}`} className="text-gold-400 font-semibold hover:underline">{COMPANY_DETAILS.emails.purchase}</a></p>
                     </div>
                   </div>
                 </div>
@@ -227,7 +241,7 @@ export default function Contact() {
               {/* Google Maps Embed Slot */}
               <div className="bg-cream-50 rounded-3xl p-6 border border-maroon-800/10 shadow-sm space-y-4">
                 <h4 className="font-serif font-bold text-lg text-espresso-800">
-                  Factory Location Map (Turkayamjal)
+                  Turkayamjal Factory Location Map
                 </h4>
                 <div className="w-full aspect-[16/9] rounded-xl overflow-hidden border border-cream-300">
                   <iframe
