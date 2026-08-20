@@ -19,8 +19,16 @@ export default function Footer() {
           
           {/* Col 1 & 2: Brand Story & Heritage */}
           <div className="lg:col-span-2 space-y-5">
-            <Link to="/" className="inline-block hover:scale-105 transition-transform">
-              <RoseLogo height={58} variant="full" light={true} />
+            <Link to="/" className="inline-flex items-center gap-3.5 group focus:outline-none">
+              <div className="w-14 h-14 rounded-2xl bg-maroon-950 p-1.5 border border-gold-500/40 shadow-md group-hover:scale-105 transition-transform shrink-0 flex items-center justify-center">
+                <img src="/logotab.png" alt="ROSE" className="w-full h-full object-contain" />
+              </div>
+              <div className="flex flex-col justify-center">
+                <img src="/rose_text_white.png" alt="ROSE" className="h-7 w-auto object-contain" />
+                <span className="text-[10px] font-bold text-gold-400 tracking-wider uppercase mt-0.5">
+                  Veeramani Biscuit Industries Pvt. Ltd.
+                </span>
+              </div>
             </Link>
 
 
@@ -32,7 +40,7 @@ export default function Footer() {
             <div className="flex items-center gap-4 pt-2">
               <HeritageBadge size="sm" />
               <div className="text-xs space-y-1">
-                <span className="text-gold-400 font-bold block">Hygienic Bakery Standards &amp; Export Quality</span>
+                <span className="text-gold-400 font-bold block">FSSAI & Export Certified</span>
                 <span className="text-espresso-300 block">South India's Trusted FMCG Bakery</span>
               </div>
             </div>

@@ -20,6 +20,25 @@ export default function ProductsHub() {
     >
       <section className="py-16 bg-maroon-800 text-cream-100 text-center">
         <div className="max-w-4xl mx-auto px-4">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <button
+              type="button"
+              onClick={() => window.history.length > 1 ? window.history.back() : window.location.href = '/'}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-cream-100/10 hover:bg-cream-100/20 text-cream-100 text-xs font-bold transition-all border border-cream-100/20 hover:border-gold-500/50 group cursor-pointer shadow-sm"
+            >
+              <svg className="w-4 h-4 text-gold-400 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              <span>Go Back</span>
+            </button>
+            <span className="text-cream-400/40 text-xs">•</span>
+            <Link to="/" className="text-xs text-cream-300 hover:text-gold-400 font-semibold transition-colors">
+              Home
+            </Link>
+            <span className="text-cream-400/40 text-xs">/</span>
+            <span className="text-xs text-gold-400 font-bold">Products Hub</span>
+          </div>
+
           <span className="inline-block px-3 py-1 rounded-full bg-gold-500 text-espresso-900 text-xs font-bold uppercase tracking-wider mb-3">
             Oven-Fresh FMCG Catalog
           </span>
