@@ -8,7 +8,7 @@ export const NAVIGATION_LINKS = [
       { name: "Chairman Profile", path: "/chairman", description: "Founder & Chairman Sri D.S. Jabamany" },
       { name: "Executive Leadership", path: "/leadership", description: "MD P.J.E. Rajiah & Management Team" },
       { name: "Infrastructure & Factory", path: "/infrastructure", description: "Turkayamjal automated manufacturing plant" },
-      { name: "Quality Control", path: "/quality", description: "FSSAI & international quality certifications" }
+      { name: "Quality Control", path: "/quality", description: "Hygienic baking & quality standards" }
     ]
   },
   { 

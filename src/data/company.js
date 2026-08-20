@@ -86,20 +86,20 @@ export const HERITAGE_MILESTONES = [
     era: "Mid 2000s",
     title: "Southern India FMCG Footprint",
     subtitle: "6 Key Regional Markets",
-    description: "Expanded retail distribution networks across Tamil Nadu, Maharashtra, Karnataka, and Kerala, supplying over 50,000+ retail outlets across South India.",
+    description: "Expanded retail distribution networks across Tamil Nadu, Maharashtra, Karnataka, and Kerala, supplying retail outlets across South India.",
     highlight: "Regional Reach"
   },
   {
     era: "2009",
     title: "Leadership Transition & Automation",
     subtitle: "P.J.E. Rajiah Appointed MD",
-    description: "Having served 20+ years as Production Manager, P.J.E. Rajiah assumed the role of Managing Director, introducing continuous band oven lines and international food safety standards.",
+    description: "Having served 20+ years as Production Manager, P.J.E. Rajiah assumed the role of Managing Director, introducing continuous band oven lines and automated food safety standards.",
     highlight: "Automation Era"
   },
   {
     era: "Present Era",
     title: "Global Export Reach (20+ Countries)",
-    subtitle: "100+ Tons Daily Capacity",
+    subtitle: "High-Capacity Production Output",
     description: "Now exporting to over 20 nations across North America, the Middle East, Africa, and South East Asia with a catalog of 50+ SKUs baking fresh daily.",
     highlight: "Global Exporter"
   }

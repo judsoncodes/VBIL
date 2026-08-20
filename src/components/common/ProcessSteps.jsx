@@ -133,9 +133,10 @@ export default function ProcessSteps({ className = "" }) {
                   </p>
                 </div>
 
+                {/* Bottom Step Indicator Bar */}
                 <div className="mt-6 pt-3 border-t border-cream-200 flex items-center justify-between text-[10px] font-bold text-espresso-400 uppercase tracking-widest relative z-10">
                   <span>Turkayamjal Facility</span>
-                  <span className="text-gold-600 font-extrabold">Passed QC</span>
+                  <span className="text-gold-600 font-extrabold">Passed QC ✓</span>
                 </div>
               </motion.div>
             );

@@ -9,11 +9,11 @@ export default {
       colors: {
         // Authentic ROSE Brand Logo Palette
         maroon: {
-          950: '#4A070B', // Dark Royal Burgundy
-          900: '#6B0A0F', // Rich Deep Maroon
-          800: '#8C0D13', // Refined Deep Burgundy Red
-          700: '#A8131A', // Classic Brand Red
-          600: '#C8232B',
+          950: '#6B0A0F',
+          900: '#9E1117', // Deep ROSE Brand Red
+          800: '#F50108', // Official Sampled ROSE Brand Logo Red (#F50108)
+          700: '#FF333B',
+          600: '#FF5960',
           200: '#FCD2D4',
           100: '#FDE8E9',
           50: '#FEF2F3',
@@ -50,7 +50,7 @@ export default {
       },
       fontFamily: {
         display: ['Fraunces', 'Newsreader', '"Playfair Display"', 'Georgia', 'serif'],
-        serif: ['Fraunces', '"Playfair Display"', 'Georgia', 'serif'],
+        serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {

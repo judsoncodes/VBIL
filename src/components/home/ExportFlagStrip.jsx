@@ -30,7 +30,7 @@ export default function ExportFlagStrip() {
           </h3>
         </div>
         <span className="text-[11px] font-semibold text-cream-300 hidden sm:inline-block">
-          FSSAI &amp; APEDA Export Certified
+          Export Cargo &amp; Seaworthy Packaging
         </span>
       </div>
 

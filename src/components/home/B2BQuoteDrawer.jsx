@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useB2BCart } from '../../context/B2BCartContext';
 import { Link } from 'react-router-dom';
-import RoseCTAButton from '../common/RoseCTAButton';
 
 export default function B2BQuoteDrawer() {
   const { cartItems, totalCases, totalSkus, removeFromCart, clearCart } = useB2BCart();
@@ -22,25 +21,8 @@ export default function B2BQuoteDrawer() {
           
           {/* Expanded Drawer Modal View */}
           {isExpanded && (
-            <div className="bg-espresso-950 border-2 border-gold-500/40 rounded-t-2xl p-4 shadow-2xl text-cream-100 mb-2 max-h-96 overflow-y-auto scrollbar-thin space-y-3">
-              
-              {/* Folded 3-Step Process Guide Bar */}
-              <div className="bg-maroon-950/90 border border-gold-500/30 rounded-xl p-3 grid grid-cols-3 gap-2 text-center text-[10px]">
-                <div className="space-y-0.5">
-                  <span className="font-bold text-gold-400 block">Step 01 • Select SKUs</span>
-                  <span className="text-cream-300 block text-[9px]">Add items &amp; case volumes</span>
-                </div>
-                <div className="space-y-0.5 border-x border-gold-500/20 px-1">
-                  <span className="font-bold text-gold-400 block">Step 02 • Review Quote</span>
-                  <span className="text-cream-300 block text-[9px]">Verify items &amp; business info</span>
-                </div>
-                <div className="space-y-0.5">
-                  <span className="font-bold text-gold-400 block">Step 03 • Factory Dispatch</span>
-                  <span className="text-cream-300 block text-[9px]">Receive price &amp; proforma</span>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between border-b border-gold-500/20 pb-2">
+            <div className="bg-espresso-950 border-2 border-gold-500/40 rounded-t-2xl p-4 shadow-2xl text-cream-100 mb-2 max-h-80 overflow-y-auto scrollbar-thin">
+              <div className="flex items-center justify-between border-b border-gold-500/20 pb-2 mb-3">
                 <div className="flex items-center gap-2">
                   <span className="text-lg">🛒</span>
                   <h4 className="font-serif font-bold text-sm text-gold-400">
@@ -49,14 +31,12 @@ export default function B2BQuoteDrawer() {
                 </div>
                 
                 <div className="flex items-center gap-3">
-                  <RoseCTAButton
-                    variant="ghost"
-                    size="compact"
-                    label="Clear All"
-                    icon={null}
-                    stubText=""
+                  <button
                     onClick={clearCart}
-                  />
+                    className="text-[11px] font-semibold text-red-400 hover:text-red-300 underline"
+                  >
+                    Clear All
+                  </button>
                   <button
                     onClick={() => setIsExpanded(false)}
                     className="text-cream-300 hover:text-cream-50 font-bold text-xs"
@@ -130,12 +110,13 @@ export default function B2BQuoteDrawer() {
 
             {/* Right: Proceed CTA */}
             <div className="flex items-center gap-2">
-              <RoseCTAButton
-                variant="primary"
-                size="compact"
-                label="Proceed to B2B Quote Request"
+              <Link
                 to="/order-request"
-              />
+                className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-gold-500 text-espresso-950 font-bold text-xs sm:text-sm hover:bg-gold-400 transition-all shadow-warm flex items-center gap-1.5"
+              >
+                <span>Proceed to Quote Request</span>
+                <span>→</span>
+              </Link>
             </div>
 
           </div>

@@ -130,7 +130,7 @@ export default function HeroSection() {
                     <img 
                       src="/rose_text_logo.png" 
                       alt="ROSE" 
-                      className="h-[1.12em] sm:h-[1.2em] lg:h-[1.25em] w-auto inline-block object-contain translate-y-[10%] drop-shadow-xs hover:scale-[1.02] transition-transform cursor-pointer"
+                      className="h-[1.25em] sm:h-[1.38em] lg:h-[1.45em] w-auto inline-block object-contain translate-y-[22%] drop-shadow-[0_2px_6px_rgba(245,1,8,0.2)] hover:scale-105 transition-transform"
                     />
                   </span>{' '}
                   Bite.
@@ -173,6 +173,26 @@ export default function HeroSection() {
                 <span>{campaign ? (campaign.secondaryCta || "Bulk Festive Order") : "Become a Distributor"}</span>
               </Link>
             </motion.div>
+
+            {/* Element 5: Quick Metrics Bar */}
+            <motion.div
+              variants={itemVariants}
+              className={`grid grid-cols-3 gap-4 pt-8 border-t max-w-lg mx-auto lg:mx-0 ${campaign ? 'border-cream-100/20' : 'border-maroon-800/10'
+                }`}
+            >
+              <div>
+                <span className={`block font-serif font-extrabold text-2xl ${campaign ? 'text-gold-400' : 'text-maroon-800'}`}>35+</span>
+                <span className={`text-xs font-medium ${campaign ? 'text-cream-200' : 'text-espresso-600'}`}>Years Heritage</span>
+              </div>
+              <div>
+                <span className={`block font-serif font-extrabold text-2xl ${campaign ? 'text-gold-400' : 'text-maroon-800'}`}>20+</span>
+                <span className={`text-xs font-medium ${campaign ? 'text-cream-200' : 'text-espresso-600'}`}>Export Nations</span>
+              </div>
+              <div>
+                <span className={`block font-serif font-extrabold text-2xl ${campaign ? 'text-gold-400' : 'text-maroon-800'}`}>6</span>
+                <span className={`text-xs font-medium ${campaign ? 'text-cream-200' : 'text-espresso-600'}`}>Southern States</span>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Right Column: Parallax Visual Stack */}
@@ -182,11 +202,9 @@ export default function HeroSection() {
               className="relative z-10 rounded-2xl overflow-hidden shadow-warm-hover border-4 border-cream-50 bg-cream-50 p-2"
             >
               <ImagePlaceholder
-                aspectRatio="4:3"
+                aspectRatio="16:9"
                 title={campaign ? campaign.name : "ROSE Signature Bakery Range"}
                 category={campaign ? campaign.badgeText : "Hyderabad Oven Fresh"}
-                src="/rose_hero_showcase.png"
-                alt="ROSE Signature Bakery Range"
               />
             </motion.div>
 

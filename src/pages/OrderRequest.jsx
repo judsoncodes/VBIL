@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import Layout from '../components/layout/Layout';
+import { Helmet } from 'react-helmet-async';
 import SectionHeader from '../components/common/SectionHeader';
 import RoseMotif from '../components/common/RoseMotif';
 import { PRODUCTS_CATALOG } from '../data/products';
@@ -213,40 +212,19 @@ SPECIAL INSTRUCTIONS: ${formData.specialInstructions || 'None'}
   };
 
   return (
-    <Layout
-      title="Place a B2B Bulk Order Request & Quote | ROSE Biscuits (VBIL)"
-      description="Submit a B2B bulk order request for ROSE Biscuits, cookies, rusks, and wafers. Volume-based trade pricing and credit terms confirmed within 24-48 hours."
-    >
+    <>
+      <Helmet>
+        <title>Place a B2B Bulk Order Request &amp; Quote | ROSE Biscuits (VBIL)</title>
+        <meta name="description" content="Submit a B2B bulk order request for ROSE Biscuits, cookies, rusks, and wafers. Volume-based trade pricing and credit terms confirmed within 24-48 hours." />
+      </Helmet>
+
       {/* --- HERO BANNER --- */}
-      <section className="bg-gradient-to-b from-maroon-950 via-maroon-900 to-espresso-900 text-cream-100 py-12 md:py-16 relative overflow-hidden">
+      <section className="bg-gradient-to-b from-maroon-950 via-maroon-900 to-espresso-900 text-cream-100 py-16 md:py-20 relative overflow-hidden">
         <div className="absolute top-0 right-0 opacity-10 pointer-events-none translate-x-12 -translate-y-12 text-gold-400">
           <RoseMotif size={360} strokeWidth={1} />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Breadcrumb & Go Back Button Bar */}
-          <div className="flex items-center gap-3 mb-6">
-            <button
-              type="button"
-              onClick={() => window.history.length > 1 ? window.history.back() : window.location.href = '/'}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-cream-100/10 hover:bg-cream-100/20 text-cream-100 text-xs font-bold transition-all border border-cream-100/20 hover:border-gold-500/50 group cursor-pointer shadow-sm"
-            >
-              <svg className="w-4 h-4 text-gold-400 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              <span>Go Back</span>
-            </button>
-            <span className="text-cream-400/40 text-xs">•</span>
-            <Link to="/" className="text-xs text-cream-300 hover:text-gold-400 font-semibold transition-colors">
-              Home
-            </Link>
-            <span className="text-cream-400/40 text-xs">/</span>
-            <Link to="/distributors" className="text-xs text-cream-300 hover:text-gold-400 font-semibold transition-colors">
-              Distributors &amp; Trade
-            </Link>
-            <span className="text-cream-400/40 text-xs">/</span>
-            <span className="text-xs text-gold-400 font-bold">Bulk Order Request</span>
-          </div>
           <div className="max-w-3xl space-y-4">
             <span className="inline-block px-3 py-1 rounded-full bg-gold-500 text-espresso-900 text-xs font-bold uppercase tracking-wider">
               Wholesale &amp; Trade Re-Ordering
@@ -617,6 +595,6 @@ SPECIAL INSTRUCTIONS: ${formData.specialInstructions || 'None'}
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

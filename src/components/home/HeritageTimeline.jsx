@@ -47,9 +47,9 @@ export default function HeritageTimeline() {
               <HeritageBadge size="sm" />
             </div>
             <SectionHeader
-              badge="Our 35+ Year Story"
-              title="The Journey of ROSE Biscuits"
-              subtitle="From a local Hyderabad bakery in 1987 to supplying homes and partners across 20+ countries."
+              badge="Over 35 Years of Oven Craftsmanship"
+              title="The Inspiring Journey of Veeramani Biscuits"
+              subtitle="Scroll down to travel through our heritage milestones from 1987 to a 20+ country export reach."
               center={true}
               className="mb-4"
             />
