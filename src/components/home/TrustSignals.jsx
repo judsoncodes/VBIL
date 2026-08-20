@@ -7,37 +7,40 @@ const TRUST_ITEMS = [
   {
     id: "hygiene-code",
     icon: ShieldCheck,
-    title: "International Food Hygiene",
-    subtitle: "Compliant with General Principles of Food Hygiene Code of Practice"
+    title: "Highest Hygiene Standards",
+    subtitle: "Certified food safety and strict quality protocols across all baking stages."
   },
   {
     id: "hitech-lab",
     icon: FlaskConical,
-    title: "In-House Hi-Tech Lab Testing",
-    subtitle: "Every batch verified for moisture, sensory crispness & micro-biological purity"
+    title: "In-House Quality Testing",
+    subtitle: "Every batch is verified for freshness, taste, crispness, and purity."
   },
   {
     id: "heritage-quality",
     icon: Award,
-    title: "35+ Years Oven Craftsmanship",
-    subtitle: "Continuous automated band oven baking in Hyderabad since 1987"
+    title: "35+ Years Baking Legacy",
+    subtitle: "Time-tested recipes baked daily in Hyderabad since 1987."
   },
   {
     id: "export-packaging",
     icon: Globe2,
-    title: "Export-Grade Foil Seals",
-    subtitle: "Nitrogen-flushed, moisture-proof wrapping for domestic & 20+ nation transit"
+    title: "Freshness Sealed Packaging",
+    subtitle: "Moisture-proof, export-grade packaging ensuring long-lasting crispness."
   }
 ];
 
 export default function TrustSignals({ className = "" }) {
   return (
-    <section className={`py-6 bg-maroon-900 text-cream-100 border-y border-gold-500/20 relative overflow-hidden ${className}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className={`py-8 bg-gradient-to-r from-maroon-950 via-maroon-900 to-maroon-950 text-cream-100 border-y border-gold-500/30 relative overflow-hidden shadow-md ${className}`}>
+      {/* Background Subtle Shimmer Line */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold-500/10 via-transparent to-transparent pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Authoritative, quiet horizontal trust row */}
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -49,14 +52,14 @@ export default function TrustSignals({ className = "" }) {
             return (
               <div 
                 key={item.id}
-                className="flex items-start gap-3.5 p-3 rounded-2xl bg-maroon-950/40 border border-gold-500/15"
+                className="flex items-start gap-3.5 p-4 rounded-2xl bg-maroon-950/70 border border-gold-500/30 hover:border-gold-500/60 backdrop-blur-md hover:bg-maroon-950/90 transition-all duration-300 shadow-sm hover:shadow-md group"
               >
-                <div className="w-9 h-9 rounded-xl bg-gold-500/15 text-gold-400 border border-gold-500/30 flex items-center justify-center shrink-0">
-                  <IconComponent className="w-5 h-5" />
+                <div className="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <IconComponent className="w-5 h-5 text-gold-400" />
                 </div>
 
-                <div className="space-y-0.5">
-                  <h4 className="font-serif font-bold text-xs text-gold-400">
+                <div className="space-y-1">
+                  <h4 className="font-serif font-bold text-xs text-gold-400 tracking-wide">
                     {item.title}
                   </h4>
                   <p className="text-[11px] text-cream-200/90 font-sans leading-snug">
